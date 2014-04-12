@@ -8,7 +8,7 @@ end
 # For example, histogram('Hello') returns {'h'=>1,'e'=>1,'l'=>2,'o'=>1}
 def histogram(a_string)
   finalArray= Hash.new
-  a_string=a_strin.split('')
+  a_string=a_string.split('')
   
   StringArray.map do |letter|
     if finalArray[letter].nil?
