@@ -41,6 +41,9 @@ def sum_only_numbers(an_array)
   an_array.map do |item|
     if item.is_a?  Numeric
       total+=item
+      
+      
+      \
     end
   end
   return total
