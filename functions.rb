@@ -7,7 +7,17 @@ end
 # Letters should be lowercase before counting
 # For example, histogram('Hello') returns {'h'=>1,'e'=>1,'l'=>2,'o'=>1}
 def histogram(a_string)
-  # write your code here
+  finalArray= Hash.new
+  a_string=a_strin.split('')
+  
+  StringArray.map do |letter|
+    if finalArray[letter].nil?
+        finalArray[letter]=1
+      else 
+        finalArray[letter]=finalArray[letter]+1
+    end
+  end
+  return finalArray
 end
 
 # Sum all the numbers in the array
