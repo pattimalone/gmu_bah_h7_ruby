@@ -7,27 +7,23 @@ end
 # Letters should be lowercase before counting
 # For example, histogram('Hello') returns {'h'=>1,'e'=>1,'l'=>2,'o'=>1}
 def histogram(a_string)
-  return a_string.downcase.split
+  c= Hash.new()
+  d= a_string.downcase.split("")
+  d.each do |x|
+    c[x]=d.count x
+  end
+  return c
 end
   
-  StringArray.map do |letter|
-    if finalArray[letter].nil?
-        finalArray[letter]=1
-      else 
-        finalArray[letter]=finalArray[letter]+1
-    end
-  end
-  return finalArray
-end
-
+ 
 # Sum all the numbers in the array
 # an_array can contain lots of different things
 # Be sure to only sum the numbers
 # (Hint: the is_a? method might be useful here)
 def sum_only_numbers(an_array)
-  total+0
-  an_array.map do |item|
-    if item.is_a? Numeric
+  total=0
+  an_array.each do |item|
+    if item.is_a?Numeric
       total+=item
     end
   end
@@ -35,13 +31,6 @@ def sum_only_numbers(an_array)
 end
 
 # For i from 1 to 100, return an array.
-# Sum all the numbers in the array
-def sum_only_numbers(an_array)
-  numbers = an_array.select{ |x| x.is_a?(Numeric) ? x:nil }.compact 
-  numbers.inject(0) { |sum, i|sum + i }
-end
-  
-
 #The elements in the array should follow the this algorithm:
 #If i is a multiple of 3, the element is 'Fizz'
 #If i is a multiple of 5, the element is 'Buzz'
@@ -50,8 +39,8 @@ end
 #For example [1, 2, 'Fizz', 4, 'Buzz', 'Fizz', ..., 14, 'FizzBuzz',...]
 
 def fizzbuzz
-  array= Array.new(100)
-  for i in 1...100
+  array= Array.new()
+  for i in 1..100 do
       if i% 3==0 && i%5==0
           array << 'FizzBuzz'
       elsif i%3==0
@@ -65,9 +54,7 @@ def fizzbuzz
   return array
 end
 #Uncomment each of these to test your functions
-puts reverse([3,6, 'dog']).inpect
-puts histogram('The Quick Brown Fox').inspect
-puts sum_only_numbers {4, 'foo', {}, 27, :rain, 3.14}
-puts fizzbuzz.join('\n")
-
-
+puts reverse([3,6, 'dog']).inspect
+puts histogram('The Quick brown fox').inspect
+puts sum_only_numbers [4, 'foo', [ ], 27, :rain, 3.14]
+puts fizzbuzz.join("/n")
